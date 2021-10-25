@@ -1,5 +1,5 @@
 {
-  "name": "cipi-quiz",
+  "name": "quizzy-web",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
