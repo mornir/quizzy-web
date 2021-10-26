@@ -1,9 +1,9 @@
 <template>
-  <form>
+  <form class="mb-8">
     <RadioGroup v-model="answer" class="cursor-pointer">
       <RadioGroupLabel>
         <div class="mb-6 font-bold">
-          <span class="uppercase text-primay"
+          <span class="uppercase text-primary"
             >Frage {{ this.$route.params.step }}: <br />
           </span>
           <span class="text-secondary">{{ question.title }}</span>
@@ -15,9 +15,9 @@
         v-for="choice in question?.choices"
         :key="choice._key"
       >
-        <div class="flex items-center gap-x-4 group">
+        <div class="flex items-center mb-3 gap-x-4 group">
           <div
-            class="w-3 h-3 transition-all duration-500 ease-in rounded-full ring-2 ring-yellow-500 ring-offset-2 group-hover:ring-red-500"
+            class="flex-shrink-0 w-3 h-3 transition-all duration-500 ease-in rounded-full ring-2 ring-yellow-500 ring-offset-2 group-hover:ring-red-500"
             :class="{ 'bg-red-500': checked }"
           ></div>
           <span class="font-light">{{ choice.title }}</span>

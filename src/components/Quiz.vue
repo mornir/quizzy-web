@@ -8,7 +8,15 @@
     </p>
 
     <router-view :questions="quiz.questions"></router-view>
-    <button @click="next" type="button">Weiter</button>
+    <div class="flex justify-center lg:justify-start">
+      <button
+        @click="next"
+        type="button"
+        class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary"
+      >
+        Weiter
+      </button>
+    </div>
   </div>
 </template>
 
