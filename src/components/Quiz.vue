@@ -3,34 +3,43 @@
     <h1 class="mb-12 text-2xl font-bold uppercase md:text-5xl">
       {{ quiz.title }}
     </h1>
-    <p class="mb-10 font-light whitespace-pre-line">
-      {{ quiz.description }}
-    </p>
 
-    <router-view
-      :questions="quiz.questions"
-      @selected="checkAnswer"
-    ></router-view>
-    <p class="mb-8 font-light text-primary" v-if="showWrongAnswerHint">
-      Sorry, falsche Antwort. Versuchen Sie’s noch einmal.
-    </p>
-    <div class="flex justify-center lg:justify-start">
-      <button
-        @click="next"
-        type="button"
-        :disabled="isDisabled"
-        class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary disabled:opacity-25"
-      >
-        Weiter
-      </button>
+    <QuizForm v-if="showForm" />
+
+    <div v-else>
+      <p class="mb-10 font-light whitespace-pre-line">
+        {{ quiz.description }}
+      </p>
+
+      <router-view
+        :questions="quiz.questions"
+        @selected="checkAnswer"
+      ></router-view>
+      <p class="mb-8 font-light text-primary" v-if="showWrongAnswerHint">
+        Sorry, falsche Antwort. Versuchen Sie’s noch einmal.
+      </p>
+      <div class="flex justify-center lg:justify-start">
+        <button
+          @click="next"
+          type="button"
+          :disabled="isDisabled"
+          class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary disabled:opacity-25"
+        >
+          Weiter
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import QuizForm from './QuizForm.vue'
 import sanity from '../sanity'
 export default {
   name: 'Quiz',
+  components: {
+    QuizForm,
+  },
   data() {
     return {
       quiz: {},
@@ -38,6 +47,7 @@ export default {
       isDisabled: true,
       isAnswerCorrect: false,
       showWrongAnswerHint: false,
+      showForm: false,
     }
   },
   created() {
@@ -60,7 +70,7 @@ export default {
     next() {
       if (this.isAnswerCorrect) {
         if (this.step >= this.quiz.questions.length) {
-          console.log('end of quiz!')
+          this.showForm = true
           //this.$router.push({ params: { step: this.step } })
         } else {
           this.step++
