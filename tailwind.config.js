@@ -1,9 +1,18 @@
 module.exports = {
-  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
-  mode: "jit",
+  mode: 'jit',
   theme: {
-    extend: {},
+    fontFamily: {
+      body: ['Assistant', 'sans-serif'],
+    },
+    extend: {
+      colors: {
+        primay: '#e52c1c',
+        secondary: '#0d0f68',
+        black: '#0c0f31',
+      },
+    },
   },
   variants: {
     extend: {},

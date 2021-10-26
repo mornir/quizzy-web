@@ -1,9 +1,12 @@
 <template>
-  <div class="p-8">
-    <h1 class="mb-4 text-5xl">{{ quiz.title }}</h1>
-    <p>
+  <div>
+    <h1 class="mb-12 text-2xl font-bold uppercase md:text-5xl">
+      {{ quiz.title }}
+    </h1>
+    <p class="mb-10 font-light whitespace-pre-line">
       {{ quiz.description }}
     </p>
+
     <router-view :questions="quiz.questions"></router-view>
     <button @click="next" type="button">Weiter</button>
   </div>
@@ -29,8 +32,8 @@ export default {
   },
   methods: {
     next() {
-      /*    this.step++
-      this.$router.push({ params: { step: this.step } }) */
+      this.step++
+      this.$router.push({ params: { step: this.step } })
     },
   },
 }

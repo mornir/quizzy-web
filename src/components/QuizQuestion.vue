@@ -1,11 +1,18 @@
 <template>
   <form>
     <RadioGroup v-model="answer" class="cursor-pointer">
-      <RadioGroupLabel>{{ question.title }}</RadioGroupLabel>
+      <RadioGroupLabel>
+        <div class="mb-6 font-bold">
+          <span class="uppercase text-primay"
+            >Frage {{ this.$route.params.step }}: <br />
+          </span>
+          <span class="text-secondary">{{ question.title }}</span>
+        </div>
+      </RadioGroupLabel>
       <RadioGroupOption
         v-slot="{ checked }"
         :value="choice._key"
-        v-for="choice in question.choices"
+        v-for="choice in question?.choices"
         :key="choice._key"
       >
         <div class="flex items-center gap-x-4 group">
@@ -13,7 +20,7 @@
             class="w-3 h-3 transition-all duration-500 ease-in rounded-full ring-2 ring-yellow-500 ring-offset-2 group-hover:ring-red-500"
             :class="{ 'bg-red-500': checked }"
           ></div>
-          <span>{{ choice.title }}</span>
+          <span class="font-light">{{ choice.title }}</span>
         </div>
       </RadioGroupOption>
     </RadioGroup>
@@ -39,7 +46,12 @@ export default {
   },
   computed: {
     question() {
-      return this.questions[this.$route.params.step - 1]
+      const question = this.questions[this.$route.params.step - 1]
+      if (question) {
+        return question
+      } else {
+        return {}
+      }
     },
   },
 }
