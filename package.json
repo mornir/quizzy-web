@@ -8,12 +8,15 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.4.1",
-    "vue": "^3.2.16"
+    "picosanity": "^3.0.1",
+    "vue": "^3.2.16",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
     "autoprefixer": "^10.3.7",
     "postcss": "^8.3.11",
+    "prettier": "2.2.1",
     "tailwindcss": "^2.2.17",
     "vite": "^2.6.4"
   }
