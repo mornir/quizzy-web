@@ -5,7 +5,7 @@
       {{ quiz.description }}
     </p>
     <router-view :questions="quiz.questions"></router-view>
-    <router-link to="2" class="cursor-pointer">Weiter</router-link>
+    <button @click="next" type="button">Weiter</button>
   </div>
 </template>
 
@@ -26,6 +26,12 @@ export default {
       })
       .then((quiz) => (this.quiz = quiz))
       .catch((err) => console.error('Oh noes: %s', err.message))
+  },
+  methods: {
+    next() {
+      /*    this.step++
+      this.$router.push({ params: { step: this.step } }) */
+    },
   },
 }
 </script>

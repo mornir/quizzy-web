@@ -1,6 +1,6 @@
 <template>
   <form>
-    <RadioGroup v-model="plan" class="cursor-pointer">
+    <RadioGroup v-model="answer" class="cursor-pointer">
       <RadioGroupLabel>{{ question.title }}</RadioGroupLabel>
       <RadioGroupOption
         v-slot="{ checked }"
@@ -34,7 +34,7 @@ export default {
   components: { RadioGroup, RadioGroupLabel, RadioGroupOption },
   data() {
     return {
-      plan: 'startup',
+      answer: '',
     }
   },
   computed: {
