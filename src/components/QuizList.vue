@@ -2,7 +2,9 @@
   <div>
     <ul>
       <li v-for="quiz in quizzes" :key="quiz.id">
-        <a href="#">{{ quiz.title }}</a>
+        <router-link :to="'/quiz/' + quiz.slug.current" class="underline">{{
+          quiz.title
+        }}</router-link>
       </li>
     </ul>
   </div>
@@ -11,6 +13,7 @@
 <script>
 import sanity from '../sanity'
 export default {
+  name: 'QuizList',
   data() {
     return {
       quizzes: [],
