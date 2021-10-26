@@ -41,6 +41,9 @@ export default {
     }
   },
   created() {
+    if (this.$route.params.step) {
+      this.step = this.$route.params.step
+    }
     sanity
       .fetch('*[_type == "quiz"  && slug.current == $slug][0]', {
         slug: this.$route.params.slug,
@@ -56,8 +59,13 @@ export default {
     },
     next() {
       if (this.isAnswerCorrect) {
-        this.step++
-        this.$router.push({ params: { step: this.step } })
+        if (this.step >= this.quiz.questions.length) {
+          console.log('end of quiz!')
+          //this.$router.push({ params: { step: this.step } })
+        } else {
+          this.step++
+          this.$router.push({ params: { step: this.step } })
+        }
       } else {
         this.showWrongAnswerHint = true
       }
