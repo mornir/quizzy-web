@@ -1,6 +1,6 @@
 <template>
   <form class="mb-8">
-    <RadioGroup v-model="answer" class="cursor-pointer">
+    <RadioGroup v-model="answer" :value="answer">
       <RadioGroupLabel>
         <div class="mb-6 font-bold">
           <span class="uppercase text-primary"
@@ -52,6 +52,14 @@ export default {
       } else {
         return {}
       }
+    },
+  },
+  watch: {
+    answer(id) {
+      const selectedAnswer = this.question.choices.find(
+        (choice) => choice._key === id
+      )
+      this.$emit('selected', selectedAnswer.isCorrect)
     },
   },
 }

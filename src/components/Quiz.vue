@@ -7,12 +7,19 @@
       {{ quiz.description }}
     </p>
 
-    <router-view :questions="quiz.questions"></router-view>
+    <router-view
+      :questions="quiz.questions"
+      @selected="checkAnswer"
+    ></router-view>
+    <p class="mb-8 font-light text-primary" v-if="showWrongAnswerHint">
+      Sorry, falsche Antwort. Versuchen Sie’s noch einmal.
+    </p>
     <div class="flex justify-center lg:justify-start">
       <button
         @click="next"
         type="button"
-        class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary"
+        :disabled="isDisabled"
+        class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary disabled:opacity-25"
       >
         Weiter
       </button>
@@ -28,6 +35,9 @@ export default {
     return {
       quiz: {},
       step: 1,
+      isDisabled: true,
+      isAnswerCorrect: false,
+      showWrongAnswerHint: false,
     }
   },
   created() {
@@ -39,9 +49,18 @@ export default {
       .catch((err) => console.error('Oh noes: %s', err.message))
   },
   methods: {
+    checkAnswer(answer) {
+      this.showWrongAnswerHint = false
+      this.isDisabled = false
+      this.isAnswerCorrect = answer
+    },
     next() {
-      this.step++
-      this.$router.push({ params: { step: this.step } })
+      if (this.isAnswerCorrect) {
+        this.step++
+        this.$router.push({ params: { step: this.step } })
+      } else {
+        this.showWrongAnswerHint = true
+      }
     },
   },
 }
