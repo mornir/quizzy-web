@@ -1,0 +1,69 @@
+{
+  "ms": 33,
+  "query": "*[_type == \"quiz\"  && slug.current == $slug][0]",
+  "result": {
+    "_createdAt": "2021-10-26T08:03:43Z",
+    "_id": "fc1109f0-4f79-4a0f-8844-e0b66e5ac132",
+    "_rev": "EJmDqsx0KpIgoMScRzdcjM",
+    "_type": "quiz",
+    "_updatedAt": "2021-10-26T08:51:05Z",
+    "description": "Zurückspulen geht nur im Film. Beugen Sie darum Bränden daheim vor und machen Sie jetzt mit bei unserem Präventionsquiz.\n\nMit etwas Glück gewinnen Sie eines von 24 LED-Kerzensets im Wert von je CHF 56.–. Die sechs Dekokerzen simulieren das Flackern von Flammen, sind aber dank LED-Technik absolut sicher und damit eine ideale Alternative zu herkömmlichen Wachskerzen.\n\nSo oder so erhalten Sie mit unserem Quiz ein paar lebenswichtige Tipps für die Brandverhütung bei Ihnen zuhause.",
+    "questions": [
+      {
+        "_key": "45cd4e56d0d3",
+        "_type": "question",
+        "choices": [
+          {
+            "_key": "fdde686c4713",
+            "_type": "choice",
+            "isCorrect": false,
+            "title": "auf die aktuelle Tageszeitung"
+          },
+          {
+            "_key": "ec065e9626a1",
+            "_type": "choice",
+            "isCorrect": true,
+            "title": "auf eine feuerfeste Unterlage wie Glas, Stein oder Metall"
+          },
+          {
+            "_key": "670dabd2625e",
+            "_type": "choice",
+            "isCorrect": false,
+            "title": "auf einen möglichst trockenen Adventskranz"
+          }
+        ],
+        "title": "Auf welche Unterlage soll ich Kerzen stellen?"
+      },
+      {
+        "_key": "847c6b138d9d",
+        "_type": "question",
+        "choices": [
+          {
+            "_key": "dc5856457aeb",
+            "_type": "choice",
+            "isCorrect": false,
+            "title": "gar nicht"
+          },
+          {
+            "_key": "98c4e9d09133",
+            "_type": "choice",
+            "isCorrect": false,
+            "title": "mindestens 24 Stunden in einem feuerfesten Behälter"
+          },
+          {
+            "_key": "d5f47a324e7b",
+            "_type": "choice",
+            "isCorrect": true,
+            "title": "mindestens 48 Stunden in einem feuerfesten Behälter"
+          }
+        ],
+        "title": "Wie lange soll ich die Asche, z.B. vom Cheminée, vor dem Entsorgen abkühlen lassen?"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "wettbewerb-herbst-2021"
+    },
+    "title": "Wettbewerb Herbst 2021"
+  }
+}

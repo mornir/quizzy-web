@@ -2,11 +2,9 @@
   <div>
     <ul>
       <li v-for="quiz in quizzes" :key="quiz.id">
-        <router-link
-          :to="'/quiz/' + quiz.slug.current + '/1'"
-          class="underline"
-          >{{ quiz.title }}</router-link
-        >
+        <router-link :to="'/quiz/' + quiz.slug.current" class="underline">{{
+          quiz.title
+        }}</router-link>
       </li>
     </ul>
   </div>

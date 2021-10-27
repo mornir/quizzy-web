@@ -37,13 +37,18 @@
           </RadioGroupOption>
         </RadioGroup>
 
-        <p class="mb-8 font-light text-primary" v-if="showWrongAnswerHint">
+        <p
+          class="mb-8 font-light text-primary"
+          v-if="showWrongAnswerHint"
+          data-cy="hint"
+        >
           Sorry, falsche Antwort. Versuchen Sie’s noch einmal.
         </p>
         <div class="flex justify-center lg:justify-start">
           <button
             @click="next"
             :disabled="!answer"
+            data-cy="submit"
             class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary disabled:opacity-25"
           >
             Weiter

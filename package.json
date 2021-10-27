@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "test": "cypress open",
+    "test:ci": "cypress run"
   },
   "dependencies": {
     "@headlessui/vue": "^1.4.1",
@@ -15,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
     "autoprefixer": "^10.3.7",
+    "cypress": "^8.7.0",
     "postcss": "^8.3.11",
     "prettier": "2.2.1",
     "tailwindcss": "^2.2.17",
