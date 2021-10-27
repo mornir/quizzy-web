@@ -48,7 +48,7 @@
           <button
             @click="next"
             :disabled="!answer"
-            data-cy="submit"
+            type="submit"
             class="px-8 py-2 text-lg font-bold text-white uppercase rounded-full bg-primary disabled:opacity-25"
           >
             Weiter
