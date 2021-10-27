@@ -29,10 +29,10 @@
           >
             <div class="flex items-center mb-3 cursor-pointer gap-x-4 group">
               <div
-                class="flex-shrink-0 w-3 h-3 transition-all duration-500 ease-in rounded-full ring-2 ring-yellow-500 ring-offset-2 group-hover:ring-red-500"
-                :class="{ 'bg-red-500': checked }"
+                class="flex-shrink-0 w-3 h-3 transition-all duration-500 ease-in rounded-full ring-2 ring-yellow-500 ring-offset-2 group-hover:ring-primary"
+                :class="checked ? 'bg-primary' : 'bg-white'"
               ></div>
-              <span class="font-light">{{ choice.title }}</span>
+              <span class="font-light">{{ choice.title }} </span>
             </div>
           </RadioGroupOption>
         </RadioGroup>
